@@ -1,0 +1,18 @@
+# WordPress uploads
+uploads/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# ACF JSON (optional - some devs track this, some don't)
+# acf-json/
+
+# Plugin/theme caches
+*.cache
+
+# Node modules (if you ever add any JS tooling to your theme)
+node_modules/
