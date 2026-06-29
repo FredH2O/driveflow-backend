@@ -17,12 +17,25 @@ require_once plugin_dir_path(__FILE__) . 'modules/testimonials/rest-testimonial.
 
 // booking cpt
 require_once plugin_dir_path(__FILE__) . 'modules/booking/register-cpt.php';
+require_once plugin_dir_path(__FILE__) . 'modules/booking/register-api.php';
+require_once plugin_dir_path(__FILE__) . 'modules/booking/create-booking.php';
 
-// Allow React development server to access the REST API
-add_filter('rest_pre_serve_request', function ($value) {
-    header('Access-Control-Allow-Origin: http://localhost:5173');
-    header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
-    header('Access-Control-Allow-Headers: Content-Type, Authorization');
+add_action('init', function () {
 
-    return $value;
+    if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+        header('Access-Control-Allow-Origin: http://localhost:5173');
+        header('Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE');
+        header('Access-Control-Allow-Headers: Content-Type, Authorization');
+        exit;
+    }
+});
+
+add_action('rest_api_init', function () {
+
+    add_filter('rest_pre_serve_request', function ($value) {
+        header('Access-Control-Allow-Origin: http://localhost:5173');
+        header('Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE');
+        header('Access-Control-Allow-Headers: Content-Type, Authorization');
+        return $value;
+    });
 });
