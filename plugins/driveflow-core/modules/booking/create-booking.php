@@ -32,6 +32,7 @@ function driveflow_create_booking(WP_REST_Request $request)
 
     // sanitize
     $name = sanitize_text_field($data['name']);
+    $phone = sanitize_text_field($data['tel']);
     $service = sanitize_text_field($data['service']);
     $date = sanitize_text_field($data['date']);
     $time = sanitize_text_field($data['time']);
@@ -42,6 +43,13 @@ function driveflow_create_booking(WP_REST_Request $request)
         'post_status' => 'publish',
         'post_title' => $name . ' - ' . $service,
     ]);
+
+    // save meta
+    update_post_meta($post_id, 'booking_name', $name);
+    update_post_meta($post_id, 'booking_tel', $phone);
+    update_post_meta($post_id, 'booking_service', $service);
+    update_post_meta($post_id, 'booking_date', $date);
+    update_post_meta($post_id, 'booking_time', $time);
 
     // error checking 
     if (is_wp_error($post_id)) {
@@ -56,5 +64,12 @@ function driveflow_create_booking(WP_REST_Request $request)
         'success' => true,
         'message' => 'Booking created successfully',
         'booking_id' => $post_id,
+        'data' => [
+            'name' => $name,
+            'phone' => $phone,
+            'service' => $service,
+            'date' => $date,
+            'time' => $time,
+        ]
     ];
 }
