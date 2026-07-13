@@ -10,6 +10,7 @@ function driveflow_register_booking_cpt()
 
         'public' => true,
         'show_in_rest' => true,
+        'rest_base' => 'bookings',
 
         'supports' => [
             'title',
