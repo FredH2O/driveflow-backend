@@ -14,6 +14,16 @@ function driveflow_register_booking_routes()
 
     register_rest_route(
         'driveflow/v1',
+        '/bookings/(?P<id>\d+)',
+        [
+            'methods' => 'GET',
+            'callback' => 'driveflow_read_booking',
+            'permission_callback' => '__return_true',
+        ]
+    );
+
+    register_rest_route(
+        'driveflow/v1',
         '/bookings/(?P<id>\d+)/status',
         [
             'methods' => 'PATCH',
@@ -27,7 +37,7 @@ function driveflow_register_booking_routes()
         '/bookings/(?P<id>\d+)',
         [
             'methods' => 'DELETE',
-            'callback' => 'driveflow_update_booking_status',
+            'callback' => 'driveflow_delete_booking',
             'permission_callback' => '__return_true'
         ]
     );
