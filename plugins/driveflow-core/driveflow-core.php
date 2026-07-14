@@ -19,6 +19,7 @@ require_once plugin_dir_path(__FILE__) . 'modules/testimonials/rest-testimonial.
 require_once plugin_dir_path(__FILE__) . 'modules/booking/register-cpt.php';
 require_once plugin_dir_path(__FILE__) . 'modules/booking/register-api.php';
 require_once plugin_dir_path(__FILE__) . 'modules/booking/create-booking.php';
+require_once plugin_dir_path(__FILE__) . 'modules/booking/update-booking-status.php';
 
 add_action('init', function () {
 
