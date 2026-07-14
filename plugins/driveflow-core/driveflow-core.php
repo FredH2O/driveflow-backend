@@ -21,7 +21,7 @@ require_once plugin_dir_path(__FILE__) . 'modules/booking/register-api.php';
 require_once plugin_dir_path(__FILE__) . 'modules/booking/create-booking.php';
 require_once plugin_dir_path(__FILE__) . 'modules/booking/update-booking-status.php';
 require_once plugin_dir_path(__FILE__) . 'modules/booking/delete-booking.php';
-require_once plugin_dir_path(__FILE__) . 'modules/boooking/read-booking.php';
+require_once plugin_dir_path(__FILE__) . 'modules/booking/read-booking.php';
 
 add_action('init', function () {
 
