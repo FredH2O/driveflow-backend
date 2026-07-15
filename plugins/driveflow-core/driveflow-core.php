@@ -6,6 +6,9 @@
  * Version: 1.0
  */
 
+// includes
+require_once plugin_dir_path(__FILE__) . 'includes/cors.php';
+
 // services cpt
 require_once plugin_dir_path(__FILE__) . 'modules/services/register-cpt.php';
 require_once plugin_dir_path(__FILE__) . 'modules/services/admin.php';
@@ -22,23 +25,3 @@ require_once plugin_dir_path(__FILE__) . 'modules/booking/create-booking.php';
 require_once plugin_dir_path(__FILE__) . 'modules/booking/update-booking-status.php';
 require_once plugin_dir_path(__FILE__) . 'modules/booking/delete-booking.php';
 require_once plugin_dir_path(__FILE__) . 'modules/booking/read-booking.php';
-
-add_action('init', function () {
-
-    if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
-        header('Access-Control-Allow-Origin: http://localhost:5173');
-        header('Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE');
-        header('Access-Control-Allow-Headers: Content-Type, Authorization');
-        exit;
-    }
-});
-
-add_action('rest_api_init', function () {
-
-    add_filter('rest_pre_serve_request', function ($value) {
-        header('Access-Control-Allow-Origin: http://localhost:5173');
-        header('Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE');
-        header('Access-Control-Allow-Headers: Content-Type, Authorization');
-        return $value;
-    });
-});

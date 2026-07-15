@@ -3,6 +3,7 @@
 function driveflow_update_booking_status($request)
 {
     $booking_id = $request['id'];
+
     $status = $request->get_param('status');
 
     update_post_meta(
