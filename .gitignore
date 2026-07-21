@@ -8,6 +8,10 @@ Thumbs.db
 # ACF JSON (optional - some devs track this, some don't)
 # acf-json/
 
+# Third-party plugins (not our own code)
+plugins/*
+!plugins/driveflow-core
+
 # Plugin/theme caches
 *.cache
 
