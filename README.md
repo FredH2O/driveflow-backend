@@ -2,6 +2,14 @@
 
 WordPress backend for the Driveflow project — a headless WordPress + React learning project.
 
+## Admin Preview
+
+Here's the backend dashboard, e.g. Services:
+
+![Services admin screen](./screenshots/driveflow-backend.png)
+
+The Services CPT includes a custom cap (max 6 entries), enforced via the plugin with an admin notice shown once the limit is reached.
+
 ## Overview
 
 Driveflow uses a headless WordPress architecture. WordPress is used purely as a content management system (CMS) and exposes content through the WordPress REST API for the Driveflow React frontend.
